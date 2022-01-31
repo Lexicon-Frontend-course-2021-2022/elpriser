@@ -2,8 +2,9 @@
  * Mock function for now
  * ========================================================================= */
 
-const getPrices = async () => {
-  return new promise((resolve) => {
+function getPrices() {
+  console.log('getPrices()');
+  return new Promise((res) => {
     let i = 0;
     let data = [];
     for (i = 0; i < 24; i++) {
@@ -19,8 +20,9 @@ const getPrices = async () => {
         }
       )
     }
-
-    resolve(data);
+    res(data);
   })
 };
 
+
+export { getPrices }
