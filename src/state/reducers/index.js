@@ -1,7 +1,7 @@
 /* ============================================================================
  * Imports
  * ========================================================================= */
-import { reducer as counter } from '../counter';
+import { reducer as prices } from '../prices';
 
 /* ============================================================================
  * Combine
@@ -10,7 +10,7 @@ import { combineReducers } from 'redux';
 const reducers = combineReducers
   (
     {
-      counter
+      prices
     }
   );
 

@@ -4,23 +4,42 @@
 import { useSelector, useDispatch } from 'react-redux'
 import actions from '../state/actions'
 
+import { getPrices } from '../api/nordpool';
+
 
 /* ============================================================================
  * Component
  * ========================================================================= */
 function App() {
 
+
   /* Boilerplate */
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
+  // Get data from API
+  getPrices()
+    .then(res => {
+      console.log(res)
+      dispatch(actions.prices.set(res.data))
+    })
 
   return (
     <div className="App">
-      <h1>counter: {state.counter}</h1>
-      <button onClick={() => dispatch(actions.counter.decrease())}>-</button>
-      <button onClick={() => dispatch(actions.counter.reset())}>RESET</button>
-      <button onClick={() => dispatch(actions.counter.increase())}>+</button>
+      <h1>Datum: {state.prices.date}</h1>
+
+      <h1>SE1: {state.prices.areas.SE1.mean} {state.prices.unit}</h1>
+      <p>Min/Max: {state.prices.areas.SE1.min}/{state.prices.areas.SE1.max} {state.prices.unit}</p>
+
+      <h1>SE2: {state.prices.areas.SE2.mean} {state.prices.unit}</h1>
+      <p>Min/Max: {state.prices.areas.SE2.min}/{state.prices.areas.SE2.max} {state.prices.unit}</p>
+
+      <h1>SE3: {state.prices.areas.SE3.mean} {state.prices.unit}</h1>
+      <p>Min/Max: {state.prices.areas.SE3.min}/{state.prices.areas.SE3.max} {state.prices.unit}</p>
+
+      <h1>SE4: {state.prices.areas.SE4.mean} {state.prices.unit}</h1>
+      <p>Min/Max: {state.prices.areas.SE4.min}/{state.prices.areas.SE4.max} {state.prices.unit}</p>
+
     </div>
   );
 }
