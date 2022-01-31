@@ -2,25 +2,48 @@
  * Actions
  * ========================================================================= */
 const actions = {
-  increase: () => ({ type: 'INCREMENT' }),
-  decrease: () => ({ type: 'DECREMENT' }),
-  reset: () => ({ type: 'RESET' }),
+  set: (payload) => ({ type: 'SET', payload }),
 }
 
+const default_state = {
+  date: "Unknown",
+  hours: 0,
+  units: "Unknown",
+  areas: {
+    SE1: {
+      min: 0,
+      max: 0,
+      mean: 0,
+      hours: []
+    },
+    SE2: {
+      min: 0,
+      max: 0,
+      mean: 0,
+      hours: []
+    },
+    SE3: {
+      min: 0,
+      max: 0,
+      mean: 0,
+      hours: []
+    },
+    SE4: {
+      min: 0,
+      max: 0,
+      mean: 0,
+      hours: []
+    },
+  }
+}
 /* ============================================================================
  * Reducer
  * ========================================================================= */
-const reducer = (state = 0, action) => {
+const reducer = (state = default_state, action) => {
 
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-
-    case 'DECREMENT':
-      return state - 1;
-
-    case 'RESET':
-      return 0;
+    case 'SET':
+      return action.payload;
 
     default:
       return state;
