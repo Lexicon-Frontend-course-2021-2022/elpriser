@@ -17,12 +17,13 @@ function App() {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
-  // Get data from API
-  getPrices()
-    .then(res => {
-      console.log(res)
-      dispatch(actions.prices.set(res.data))
-    })
+  // Get data from API, but only once!
+  if (!state.prices.hours) {
+    getPrices()
+      .then(res => {
+        dispatch(actions.prices.set(res.data))
+      })
+  }
 
   return (
     <div className="App">
