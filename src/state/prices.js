@@ -14,25 +14,25 @@ const default_state = {
       min: 0,
       max: 0,
       mean: 0,
-      hours: []
+      hourly: []
     },
     SE2: {
       min: 0,
       max: 0,
       mean: 0,
-      hours: []
+      hourly: []
     },
     SE3: {
       min: 0,
       max: 0,
       mean: 0,
-      hours: []
+      hourly: []
     },
     SE4: {
       min: 0,
       max: 0,
       mean: 0,
-      hours: []
+      hourly: []
     },
   }
 }
