@@ -6,6 +6,8 @@ import actions from '../state/actions'
 
 import { getPrices } from '../api/nordpool';
 
+import Home from '../pages/home';
+
 
 /* ============================================================================
  * Component
@@ -26,7 +28,11 @@ function App() {
   }
 
   return (
+
     <div className="App">
+    
+    <Home />
+
       <h1>Datum: {state.prices.date}</h1>
 
       <h1>SE1: {state.prices.areas.SE1.mean} {state.prices.unit}</h1>
