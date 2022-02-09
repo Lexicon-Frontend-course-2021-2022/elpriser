@@ -1,12 +1,11 @@
 /* ============================================================================
  * Imports
  * ========================================================================= */
-import { useSelector, useDispatch } from 'react-redux'
-import actions from '../state/actions'
-
-import { getPrices } from '../api/nordpool';
-
-import Home from '../pages/home';
+// import { useSelector, useDispatch } from 'react-redux'
+// import actions from '../state/actions'
+// import { getPrices } from '../api/nordpool';
+import './App.css';
+import Karta from './Karta';
 
 
 /* ============================================================================
@@ -15,25 +14,27 @@ import Home from '../pages/home';
 function App() {
 
 
-  /* Boilerplate */
-  const state = useSelector(state => state);
-  const dispatch = useDispatch();
+  // /* Boilerplate */
+  // const state = useSelector(state => state);
+  // const dispatch = useDispatch();
 
-  // Get data from API, but only once!
-  if (!state.prices.hours) {
-    getPrices()
-      .then(res => {
-        dispatch(actions.prices.set(res.data))
-      })
-  }
+  // // Get data from API, but only once!
+  // if (!state.prices.hours) {
+  //   getPrices()
+  //     .then(res => {
+  //       dispatch(actions.prices.set(res.data))
+  //     })
+  // }
 
   return (
 
     <div className="App">
-    
-    <Home />
 
-      <h1>Datum: {state.prices.date}</h1>
+    <h1>Elpriser</h1>
+    <Karta />
+    
+
+      {/* <h1>Datum: {state.prices.date}</h1>
 
       <h1>SE1: {state.prices.areas.SE1.mean} {state.prices.unit}</h1>
       <p>Min/Max: {state.prices.areas.SE1.min}/{state.prices.areas.SE1.max} {state.prices.unit}</p>
@@ -45,7 +46,7 @@ function App() {
       <p>Min/Max: {state.prices.areas.SE3.min}/{state.prices.areas.SE3.max} {state.prices.unit}</p>
 
       <h1>SE4: {state.prices.areas.SE4.mean} {state.prices.unit}</h1>
-      <p>Min/Max: {state.prices.areas.SE4.min}/{state.prices.areas.SE4.max} {state.prices.unit}</p>
+      <p>Min/Max: {state.prices.areas.SE4.min}/{state.prices.areas.SE4.max} {state.prices.unit}</p> */}
 
     </div>
   );
