@@ -8,7 +8,7 @@ const actions = {
 const default_state = {
   date: "Unknown",
   hours: 0,
-  units: "Unknown",
+  unit: "Unknown",
   areas: {
     SE1: {
       min: 0,

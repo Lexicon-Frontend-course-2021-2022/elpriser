@@ -11,25 +11,25 @@ const Karta = () => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
-  // Get data from API, but only once!
-  if (!state.prices.hours) {
-    getPrices()
-      .then(res => {
-        dispatch(actions.prices.set(res.data))
-      })
-      
-  }
+  // // Get data from API, but only once!
+  // if (!state.prices.hours) {
+  //   getPrices()
+  //     .then(res => {
+  //       dispatch(actions.prices.set(res.data))
+  //     })
+
+  // }
 
   return <div>
-      <Container>
-            <SverigeImg src= {SverigeKarta} type="image/png" />
-            <DataBanner>
-                <SE_1><SE_P>SE1</SE_P></SE_1><SEdata1><SE_PRIS>{state.prices.areas.SE1.mean}{state.prices.units}</SE_PRIS></SEdata1>
-                <SE_2><SE_P>SE2</SE_P></SE_2><SEdata2><SE_PRIS>{state.prices.areas.SE2.mean} {state.prices.units}</SE_PRIS></SEdata2>
-                <SE_3><SE_P>SE3</SE_P></SE_3><SEdata3><SE_PRIS>{state.prices.areas.SE3.mean} {state.prices.units}</SE_PRIS></SEdata3>
-                <SE_4><SE_P>SE4</SE_P></SE_4><SEdata4><SE_PRIS>{state.prices.areas.SE4.mean} {state.prices.units}</SE_PRIS></SEdata4>
-            </DataBanner>
-      </Container>
+    <Container>
+      <SverigeImg src={SverigeKarta} type="image/png" />
+      <DataBanner>
+        <SE_1><SE_P>SE1</SE_P></SE_1><SEdata1><SE_PRIS>{state.prices.mean.SE1}{state.prices.unit}</SE_PRIS></SEdata1>
+        <SE_2><SE_P>SE2</SE_P></SE_2><SEdata2><SE_PRIS>{state.prices.mean.SE2} {state.prices.unit}</SE_PRIS></SEdata2>
+        <SE_3><SE_P>SE3</SE_P></SE_3><SEdata3><SE_PRIS>{state.prices.mean.SE3} {state.prices.unit}</SE_PRIS></SEdata3>
+        <SE_4><SE_P>SE4</SE_P></SE_4><SEdata4><SE_PRIS>{state.prices.mean.SE4} {state.prices.unit}</SE_PRIS></SEdata4>
+      </DataBanner>
+    </Container>
   </div>;
 };
 
