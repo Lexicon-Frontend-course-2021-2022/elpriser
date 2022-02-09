@@ -1,44 +1,43 @@
 /* ============================================================================
  * Actions
  * ========================================================================= */
+
 const actions = {
   set: (payload) => ({ type: 'SET', payload }),
+
 }
 
 const default_state = {
   date: "Unknown",
   hours: 0,
   unit: "Unknown",
-  areas: {
-    SE1: {
-      min: 0,
-      max: 0,
-      mean: 0,
-      hourly: []
-    },
-    SE2: {
-      min: 0,
-      max: 0,
-      mean: 0,
-      hourly: []
-    },
-    SE3: {
-      min: 0,
-      max: 0,
-      mean: 0,
-      hourly: []
-    },
-    SE4: {
-      min: 0,
-      max: 0,
-      mean: 0,
-      hourly: []
-    },
-  }
+  max: {
+    SE1: 0,
+    SE2: 0,
+    SE3: 0,
+    SE4: 0,
+    scale: 0
+  },
+  min: {
+    SE1: 0,
+    SE2: 0,
+    SE3: 0,
+    SE4: 0,
+    scale: 0
+  },
+  mean: {
+    SE1: 0,
+    SE2: 0,
+    SE3: 0,
+    SE4: 0,
+  },
+  hourly: {}
 }
+
 /* ============================================================================
  * Reducer
  * ========================================================================= */
+
 const reducer = (state = default_state, action) => {
 
   switch (action.type) {
@@ -53,4 +52,5 @@ const reducer = (state = default_state, action) => {
 /* ============================================================================
  * Exports
  * ========================================================================= */
+
 export { actions, reducer };
